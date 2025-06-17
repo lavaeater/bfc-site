@@ -1,0 +1,9 @@
+[[item]]
+name = "Om oss"
+path = "#about"
+[[item]]
+name = "Träning"
+path = "#training"
+[[item]]
+name = "Kontakt"
+path = "#signup"

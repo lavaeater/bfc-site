@@ -1,0 +1,14 @@
+[[contact]]
+name = "Address"
+address = "Riksstigen 1, 71431 Kopparberg"
+icon = "fa-map-marked-alt"
+[[contact]]
+name = "E-post"
+address = """<a href="#!">kontakt@bergslagensfightclub.com</a>"""
+icon = "fa-envelope"
+[[social]]
+icon = "fa-instagram"
+url = "https://www.instagram.com/bergslagens_fc/"
+[[social]]
+icon = "fa-facebook-f"
+url = "https://www.facebook.com/profile.php?id=100089696304663"
