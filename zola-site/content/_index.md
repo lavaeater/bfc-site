@@ -1,3 +1,0 @@
-+++
-title = "Bergslagens Fight Club"
-+++

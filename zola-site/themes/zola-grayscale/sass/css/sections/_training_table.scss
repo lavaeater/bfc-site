@@ -1,0 +1,30 @@
+.training-table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial Black', sans-serif;
+    box-shadow: 0 0 10px rgba(38, 37, 37, 0.87);
+    overflow: hidden;
+    border-radius: 6px;
+
+    th {
+      background-color: #7a7a7a; // dark row striping
+    }
+    
+    th, td {
+      padding: 16px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #7a7a7a; // dark row striping
+    }
+  }
+}

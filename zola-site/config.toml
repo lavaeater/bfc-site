@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://bergslagensfightclub.com"
 title = "Bergslagens Fight Club"
-description = "Hemsida för Bergslagens Fight Club Ideel Förening"
+description = "Hemsida för Bergslagens Fight Club Ideell Förening"
 # Whether to build a search index to be used later on by a JavaScript library
 theme = "zola-grayscale"
 compile_sass = true

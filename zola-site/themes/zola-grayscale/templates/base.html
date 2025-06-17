@@ -1,0 +1,153 @@
+{% import "macros/debug.html" as debug %}
+{% import "macros/head.html" as head %}
+{% import "macros/analytics.html" as analytics %}
+
+{% set navigation = load_data(path="navigation.toml") %}
+{% set contact = load_data(path="contact.toml") %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    {{ analytics::google_analytics() }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="{{ config.description }}" />
+    <meta name="author" content="{{ config.author }}" />
+    {% block title %}{{ head::title() }}{% endblock title %}
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path="assets/favicon.ico") }}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.7.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ get_url(path="css/styles.css") }}" rel="stylesheet" />
+    {% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ get_url(path="css/custom.css") }}">
+    {% endblock extra_head %}
+    {% endblock head %}
+</head>
+<body id="{% block body_id %}page-top{% endblock body_id %}">
+    {% block navigation %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{{ get_url(path="/") }}#page-top">{% block nav_home_title %}{{ config.title }}{% endblock nav_home_title %}</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    {% for item in navigation.item %}
+                    <li class="nav-itempdown">
+                        <a class="nav-link" href="{{ item.path | safe }}">{{ item.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock navigation %}
+    {% block masthead %}
+    <!-- Masthead -->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">{% block masthead_title %}{{ config.title }}{% endblock masthead_title %}</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">{% block masthead_description %}{{ config.description }}{% endblock masthead_description %}</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock masthead %}
+    {% block content %}
+    {% block about %}
+    <!-- About -->
+    <section class="about-section text-center" id="{% block about_id %}about{% endblock about_id %}">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">{% block about_title %}{{ config.title }}{% endblock about_title %}</h2>
+                    <p class="text-white-50">
+                        {% block about_description %}
+                            {{ config.description }}
+                        {% endblock about_description %}
+                    </p>
+                </div>
+            </div>
+            {% block about_image %}
+            <img class="img-fluid" src="{{ get_url(path="assets/img/marcusodiego.jpg") }}" alt="Huvudtränare Marcus och aktiv Diego efter ett träningspass" />
+            {% endblock about_image %}
+        </div>
+    </section>
+    {% endblock about %}
+    {% block projects %}
+    <!-- Projects-->
+    <section class="projects-section bg-light" id="{% block projects_id %}projects{% endblock projects_id %}">
+        <div class="container px-4 px-lg-5">
+            {% block featured_project %}
+            <!-- Featured Project Row -->
+            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="text-left text-lg-left training-table">
+                        <h2>{% block feature_project_title %}Aktuella träningstider{% endblock feature_project_title %}</h2>
+                        <p class="text-black-50 mb-0">
+                            {% set training = get_page(path="training/index.md") %}
+                            {{ training.content | safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endblock featured_project %}
+        </div>
+    </section>
+    {% endblock projects %}
+    {% endblock content %}
+    {% block contact %}
+    <!-- Contact -->
+    <section class="contact-section bg-black" id="{% block contact_id %}contact{% endblock contact_id %}">
+        <div class="container px-4 px-lg-5">
+            {% block contact_contact %}
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+            {% for item in contact.contact %}
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas {{ item.icon }} text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">{{ item.name }}</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-50">{{ item.address|safe }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            {% endblock contact_contact %}
+            {% block contact_social %}
+            <div class="social d-flex justify-content-center">
+                {% for item in contact.social %}
+                <a class="mx-2" href="{{ item.url | safe }}"><i class="fa-brands {{ item.icon }} fa-xl" aria-hidden="true"></i></a>
+                {% endfor %}
+            </div>
+            {% endblock contact_social %}
+        </div>
+    </section>
+    {% endblock contact %}
+    {% block footer %}
+    <!-- Footer -->
+    <footer class="footer bg-black small text-center text-white-50">
+        <div class="container px-4 px-lg-5">{% block footer_copyright %}Copyright &copy; {{ config.author }} {{ now() | date(format="%Y") }}{% endblock footer_copyright %}</div>
+        {% block extra_footer %}{% endblock extra_footer %}
+        {% block footer_debug %}{{ debug::debug(context=__tera_context, name="__tera_context") }}{% endblock footer_debug %}
+    </footer>
+    {% endblock footer %}
+<!-- Bootstrap core JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Core theme JS -->
+<script src="{{ get_url(path="js/scripts.js") }}"></script>
+{% block extra_scripts %}{% endblock extra_scripts %}
+</body>
+</html>

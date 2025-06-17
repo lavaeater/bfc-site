@@ -22,9 +22,3 @@ highlight_theme = "gray-matter-dark"
 # enable a debug pop out panel to display template context
 debug = false
 
-# google analytics id
-#google_analytics_tag = "XXXXXX"
-
-# SB Forms API token
-# comment this out to remove the contact form
-sb_forms_api_token = "API_TOKEN"
