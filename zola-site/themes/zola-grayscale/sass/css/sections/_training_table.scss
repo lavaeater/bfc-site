@@ -1,6 +1,6 @@
 .training-table {
   table {
-    width: 100%;
+    width: 80%;
     margin: 32px 0; // Adds air above and below the table
     border-collapse: collapse;
     font-family: 'Arial Black', sans-serif;
@@ -13,14 +13,13 @@
     }
     
     th, td {
-      padding: 16px;
+      padding: 8px;
       text-align: center;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     th {
       font-size: 1.1rem;
-      text-transform: uppercase;
       letter-spacing: 1px;
     }
 
