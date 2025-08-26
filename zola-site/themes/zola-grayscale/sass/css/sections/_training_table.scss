@@ -1,6 +1,7 @@
 .training-table {
   table {
     width: 100%;
+    margin: 32px 0; // Adds air above and below the table
     border-collapse: collapse;
     font-family: 'Arial Black', sans-serif;
     box-shadow: 0 0 10px rgba(38, 37, 37, 0.87);
