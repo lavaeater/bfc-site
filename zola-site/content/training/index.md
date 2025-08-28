@@ -60,3 +60,8 @@ Balans och koordination för de yngsta, 6-9 år.
 | Dag     | Tid         |
 |---------|-------------|
 | Lördag  | 14:00-14:45 |
+
+
+## Senaste träningsposten
+
+{{ instagram(permalink="https://www.instagram.com/p/DMGPzCqI9Fs/") }}
