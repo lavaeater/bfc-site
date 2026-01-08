@@ -83,6 +83,14 @@
             {% block about_image %}
             <img class="img-fluid" src="{{ get_url(path="assets/img/marcusodiego.jpg") }}" alt="Huvudtränare Marcus och aktiv Diego efter ett träningspass" />
             {% endblock about_image %}
+            {% block about_instagram %}
+            <div class="row gx-4 gx-lg-5 justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <h3 class="text-white mb-4">Senaste från Instagram</h3>
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/bergslagens_fc/" data-instgrm-version="14"></blockquote>
+                </div>
+            </div>
+            {% endblock about_instagram %}
         </div>
     </section>
     {% endblock about %}
@@ -96,10 +104,15 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="text-left text-lg-left training-table">
                         <h2>{% block feature_project_title %}Aktuella träningstider{% endblock feature_project_title %}</h2>
-                        <p class="text-black-50 mb-0">
-                            {% set training = get_page(path="training/index.md") %}
-                            {{ training.content | safe }}
-                        </p>
+                        <div class="text-black-50 mb-0">
+                            {% set training_section = get_section(path="training/_index.md") %}
+                            {% if training_section.pages | length > 0 %}
+                                {% set latest = training_section.pages | first %}
+                                {{ latest.content | safe }}
+                            {% else %}
+                                <p>Inga träningstider publicerade ännu.</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 +++
-title = "Träningstider"
-date = "2025-06-17"
+title = "Träningstider hösten 2025"
+date = "2025-08-15"
 +++
 
 ## Träningstider våren 2026
@@ -62,6 +62,3 @@ Balans och koordination för de yngsta, 6-9 år.
 | Lördag  | 14:00-14:45 |
 
 
-## Senaste träningsposten
-
-{{ instagram(permalink="https://www.instagram.com/p/DMGPzCqI9Fs/") }}

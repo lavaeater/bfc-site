@@ -1,0 +1,18 @@
+{% extends "zola-grayscale/templates/base.html" %}
+
+{% block featured_project %}
+<!-- Featured Project Row - Latest Training Schedule -->
+<div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+    <div class="col-xl-8 col-lg-7">
+        <div class="text-left text-lg-left training-table">
+            <h2>Aktuella träningstider</h2>
+            {% if section.pages | length > 0 %}
+                {% set latest = section.pages | first %}
+                {{ latest.content | safe }}
+            {% else %}
+                <p>Inga träningstider publicerade ännu.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock featured_project %}
