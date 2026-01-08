@@ -3,7 +3,7 @@ title = "Träningstider hösten 2025"
 date = "2025-08-15"
 +++
 
-## Träningstider våren 2026
+## Träningstider hösten 2025
 Nu är höstterminen igång, nytt för hösten är damboxning med Sofia på torsdagar, herr-fri boxning!
 
 Som vanligt är det gratis att prova på om man är nyfiken, har man frågor är det bara att kontakta oss på Facebook eller Instagram. 
