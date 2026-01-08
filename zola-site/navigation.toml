@@ -5,5 +5,8 @@ path = "#about"
 name = "Träning"
 path = "/#training"
 [[item]]
+name = "Priser"
+path = "/#priser"
+[[item]]
 name = "Kontakt"
 path = "#contact"

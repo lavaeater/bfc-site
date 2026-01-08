@@ -120,6 +120,29 @@
         </div>
     </section>
     {% endblock projects %}
+    {% block priser %}
+    <!-- Priser -->
+    <section class="projects-section bg-white" id="priser">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="text-left text-lg-left training-table">
+                        <h2>{% block priser_title %}Priser{% endblock priser_title %}</h2>
+                        <div class="text-black-50 mb-0">
+                            {% set priser_section = get_section(path="priser/_index.md") %}
+                            {% if priser_section.pages | length > 0 %}
+                                {% set latest = priser_section.pages | first %}
+                                {{ latest.content | safe }}
+                            {% else %}
+                                <p>Inga priser publicerade ännu.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock priser %}
     {% endblock content %}
     {% block contact %}
     <!-- Contact -->
